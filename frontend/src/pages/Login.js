@@ -15,7 +15,7 @@ const Login = () => {
     try {
       setLoading(true);
       const {data}=await axios.post(
-        "http://localhost:8080/api/v1/users/login",
+        "https://budget-buddy-backend-neon.vercel.app/api/v1/users/login",
         values
       );
       setLoading(false);
