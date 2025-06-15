@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
   const DeleteUser=async()=>{
      try {
-     const data= await axios.post("http://localhost:8080/api/v1/users/delete-user",{id:user._id});
+     const data= await axios.post("https://budget-buddy-backend-neon.vercel.app/users/delete-user",{id:user._id});
       message.success("User has been Deleted Successfully");
       localStorage.removeItem("user");
       navigate("/login");
