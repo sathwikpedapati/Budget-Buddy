@@ -38,7 +38,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const user = JSON.parse(localStorage.getItem("user"));
-      const res = await axios.post("http://localhost:8080/api/v1/transcations/get-transcations", {
+      const res = await axios.post("https://budget-buddy-backend-neon.vercel.app/api/v1/transcations/get-transcations", {
         userid: user._id,
         frequency,
         selectedDate,
@@ -58,7 +58,7 @@ const HomePage = () => {
    const handleDelete=async(record)=>{
      try {
       setLoading(true);
-      await axios.post("http://localhost:8080/api/v1/transcations/delete-transcations",{transcationId:record._id});
+      await axios.post("https://budget-buddy-backend-neon.vercel.app/api/v1/transcations/delete-transcations",{transcationId:record._id});
       setLoading(false);
       message.success("Transcation Deleted Successfully");
      } catch (error) {
@@ -74,7 +74,7 @@ const HomePage = () => {
       setLoading(true);
       const user = JSON.parse(localStorage.getItem("user"));
       if(editable){
-          await axios.post("http://localhost:8080/api/v1/transcations/edit-transcations", {
+          await axios.post("https://budget-buddy-backend-neon.vercel.app/api/v1/transcations/edit-transcations", {
         payload:{
           ...values,
           userId:user._id
@@ -84,7 +84,7 @@ const HomePage = () => {
       setLoading(false);
       message.success("Transcation Updated Successfully")
       }else{
-        await axios.post("http://localhost:8080/api/v1/transcations/add-transcations", {
+        await axios.post("https://budget-buddy-backend-neon.vercel.app/api/v1/transcations/add-transcations", {
         ...values,
         userid: user._id
       });
